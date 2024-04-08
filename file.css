@@ -1,10 +1,12 @@
 img, video {
+    
 }
 body {
     font-family: Helvetica;
     margin: 0;
     padding: 0;
 }
+
 .holder {
     height: 100%;
     width: 100%;
@@ -12,10 +14,21 @@ body {
 section {
     position: absolute;
     inset: 0;
-
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
+    padding-top: 21px;
+}
+.button-product {
+    border: 2px solid rgb(92, 92, 92);
+    font-size: 100%;
+    background-color: white;
+    border-radius: 23px;
+}
+.button-color {
+    padding: 15px 15px;
+    border: 2px solid rgb(92, 92, 92);
+    border-radius: 100%;
 }
 .button {
     padding: 13px 26px;
@@ -107,7 +120,9 @@ header > .navbar > a {
     width: 60%;
 }
 .info {
-    text-align: center;
+    padding-bottom: 1px;
+    font-size: 50%; 
+    color: rgb(92, 92, 92);
 }
 .catalogue {
     border: 1px solid black;
@@ -181,6 +196,24 @@ hr {
     padding-bottom: 5%;
     background-color: #e2e2e2;
 }
+.sale1 {
+    border: black solid 0.5px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    color: rgb(148, 148, 148);
+    padding-left: 51%;
+    padding-right: 23%;
+    background-color: rgb(241, 241, 241);
+}
+.sale {
+    text-align: center;
+    color: black;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
 footer {
     right: 0;
     left: 0;
@@ -190,7 +223,6 @@ footer {
     padding-right: 18%;
     background-color: rgb(241, 241, 241);
 }
-
 .end {
     padding: 3%;
     text-align: center;
