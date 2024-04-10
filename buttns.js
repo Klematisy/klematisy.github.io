@@ -6,21 +6,26 @@ var blackButton1 = document.getElementById("blackAir1");
 
 
 whiteButton1.onclick = function(){
-    document.getElementById("whiteAir1").style.borderColor = "lightblue";
+    window.alert(`aksjdf`);
+    document.getElementById("whiteAir1").style.borderColor = "white";
 }
 
 pinkButton1.onclick = function(){
-    document.getElementById("donbassAir1").src = "images/Air/pink.png";
+    window.alert(`aksjdf`);
+    document.getElementById("pinkAir1").style.borderColor = "white";
 }
 
 goldenButton1.onclick = function(){
-    document.getElementById("donbassAir1").src = "images/Air/golden.png";
+    window.alert(`aksjdf`);
+    document.getElementById("goldenAir1").style.borderColor = "lightblue";
 }
 
 redButton1.onclick = function(){
-    document.getElementById("donbassAir1").src = "images/Air/PRed.png";
+    window.alert(`aksjdf`);
+    document.getElementById("redAir1").style.borderColor = "lightblue";
 }
 
 blackButton1.onclick = function(){
-    document.getElementById("donbassAir1").src = "images/Air/black.png";
+    window.alert(`aksjdf`);
+    document.getElementById("blackAir1").style.borderColor = "lightblue";
 }

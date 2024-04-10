@@ -1,28 +1,59 @@
 
 
-const whiteAirButton1 = document.getElementById("whiteAir2");
-const pinkAirButton1 = document.getElementById("pinkAir2");
-const goldenAirButton1 = document.getElementById("goldenAir2");
-const redAirButton1 = document.getElementById("redAir2");
-const blackAirButton1 = document.getElementById("blackAir2");
+const whiteAirButton2 = document.getElementById("whiteAir2");
+const pinkAirButton2 = document.getElementById("pinkAir2");
+const goldenAirButton2 = document.getElementById("goldenAir2");
+const redAirButton2 = document.getElementById("redAir2");
+const blackAirButton2 = document.getElementById("blackAir2");
 
 
-whiteAirButton1.onclick = function(){
+whiteAirButton2.onclick = function(){
     document.getElementById("donbassAir2").src = "images/Air/air.png";
+    document.getElementById("whiteAir2").style.borderColor = "#205dc5";
+
+    document.getElementById("pinkAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("goldenAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("redAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("blackAir2").style.borderColor = "rgb(218, 218, 218)";
 }
 
-pinkAirButton1.onclick = function(){
+pinkAirButton2.onclick = function(){
     document.getElementById("donbassAir2").src = "images/Air/pink.png";
+    document.getElementById("pinkAir2").style.borderColor = "#205dc5";
+
+    document.getElementById("whiteAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("goldenAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("redAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("blackAir2").style.borderColor = "rgb(218, 218, 218)";
 }
 
-goldenAirButton1.onclick = function(){
+goldenAirButton2.onclick = function(){
     document.getElementById("donbassAir2").src = "images/Air/golden.png";
+    document.getElementById("goldenAir2").style.borderColor = "#205dc5";
+
+    document.getElementById("whiteAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("pinkAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("redAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("blackAir2").style.borderColor = "rgb(218, 218, 218)";
 }
 
-redAirButton1.onclick = function(){
+redAirButton2.onclick = function(){
     document.getElementById("donbassAir2").src = "images/Air/PRed.png";
+    document.getElementById("redAir2").style.borderColor = "#205dc5";
+
+    document.getElementById("whiteAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("pinkAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("goldenAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("blackAir2").style.borderColor = "rgb(218, 218, 218)";
 }
 
-blackAirButton1.onclick = function(){
+blackAirButton2.onclick = function(){
+
     document.getElementById("donbassAir2").src = "images/Air/black.png";
+    document.getElementById("blackAir2").style.borderColor = "#205dc5";
+
+    document.getElementById("whiteAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("pinkAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("goldenAir2").style.borderColor = "rgb(218, 218, 218)";
+    document.getElementById("redAir2").style.borderColor = "rgb(218, 218, 218)";
 }
