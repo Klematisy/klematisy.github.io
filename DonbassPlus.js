@@ -1,3 +1,8 @@
+const truncateDecimal = (num, decimalPlaces) => {
+    const factor = Math.pow(10, decimalPlaces);
+    return Math.trunc(num * factor) / factor;
+};
+
 const rad = document.getElementById("radiator");
 const cab = document.getElementById("cabble");
 const shelf = document.getElementById("shelves");
@@ -12,13 +17,17 @@ rad.onclick = function(){
 
         document.getElementById("pricePlus").textContent = String(pricePlus - 200);
         pricePlus = + document.getElementById("pricePlus").textContent;
+
     } else {
         document.getElementById("pricePlus").textContent = String(200 + pricePlus);
-        pricePlus = + document.getElementById("pricePlus").textContent;
         
+        pricePlus = + document.getElementById("pricePlus").textContent;
+
         document.getElementById("priceRadiator").textContent = " - $200.00";
         document.getElementById("radiator").style.borderColor = "rgb(32, 93, 197)";
     }
+    
+    document.getElementById("creditPlus").textContent = String(truncateDecimal(pricePlus / 24, 2));
 }
 
 cab.onclick = function(){
@@ -35,6 +44,7 @@ cab.onclick = function(){
         document.getElementById("priceCabble").textContent = " - $50.00";
         document.getElementById("cabble").style.borderColor = "rgb(32, 93, 197)";
     }
+    document.getElementById("creditPlus").textContent = String(truncateDecimal(pricePlus / 24, 2));
 }
 
 shelf.onclick = function(){
@@ -51,6 +61,7 @@ shelf.onclick = function(){
         document.getElementById("shelves").style.borderColor = "rgb(32, 93, 197)";
         document.getElementById("priceShelf").textContent = " - $300.00";
     }
+    document.getElementById("creditPlus").textContent = String(Math.floor(pricePlus / 24));
 }
 
 comp.onclick = function(){
@@ -67,4 +78,5 @@ comp.onclick = function(){
         document.getElementById("compressor").style.borderColor = "rgb(32, 93, 197)";
         document.getElementById("priceCompressor").textContent = " - $500.00";
     }
+    document.getElementById("creditPlus").textContent = String(truncateDecimal(pricePlus / 24, 2));
 }

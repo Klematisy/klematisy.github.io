@@ -1,3 +1,7 @@
+const truncateDecimal = (num, decimalPlaces) => {
+    const factor = Math.pow(10, decimalPlaces);
+    return Math.trunc(num * factor) / factor;
+};
 
 const comp = document.getElementById("compressor");
 const cab = document.getElementById("cabble");
@@ -18,6 +22,7 @@ comp.onclick = function(){
     
         document.getElementById("compressor").style.borderColor = "rgb(32, 93, 197)";
     }
+    document.getElementById("creditMini").textContent = String(truncateDecimal(priceMini / 24, 2));
 }
 
 cab.onclick = function(){
@@ -34,4 +39,5 @@ cab.onclick = function(){
 
         document.getElementById("cabble").style.borderColor = "rgb(32, 93, 197)";
     }
+    document.getElementById("creditMini").textContent = String(truncateDecimal(priceMini / 24, 2));
 }
