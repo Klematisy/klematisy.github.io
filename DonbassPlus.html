@@ -51,23 +51,23 @@
                     <br><br>
                     <button id="radiator" class="button-product button-complectation" style="padding: 10px 5%;">
                         <p style="text-align: start;">Улучшенные радиаторы</p>
-                        <p style="text-align: end; align-self: center;"> + $200.00</p>
+                        <p id="priceRadiator" style="text-align: end; align-self: center;"> + $200.00</p>
                     </button>
                     <br>
                     <button id="cabble" class="button-product button-complectation" style="padding: 10px 5%;">
                         <p style="text-align: start;">Удлинённый кабель питания</p>
-                        <p style="text-align: end; align-self: center;"> + $50.00</p></button>
+                        <p id="priceCabble" style="text-align: end; align-self: center;"> + $50.00</p></button>
                     <br>
                     <button id="shelves" class="button-product button-complectation" style="padding: 10px 5%;">
                         <p style="text-align: start;">Две дополнительные полочки</p>
-                        <p style="text-align: end; align-self: center;"> + $300.00</p></button>
+                        <p id="priceShelf" style="text-align: end; align-self: center;"> + $300.00</p></button>
                     <br>
                     <button id="compressor" class="button-product button-complectation" style="padding: 10px 5%;">
                         <p style="text-align: start;">Дополнительная калибровка компрессора</p>
-                        <p style="text-align: end; align-self: center;"> + $500.00</p>
+                        <p id="priceCompressor" style="text-align: end; align-self: center;"> + $500.00</p>
                     </button>
                 </p>
-                <script src="DonbassPlus.js"></script>
+                
             </div>
         </div>
         <footer>
@@ -105,10 +105,13 @@
         </footer>
         <div class="sale1">
             <div class="sale">
-                <p style="text-align: end; font-size: 120%;"><b>$2499.00 или
-                <br>$104.12/м. за 2 года</b></p>
+                <div>
+                    <p style="text-align: end; font-size: 120%;"><b>$<b id="pricePlus">2499</b>.00 или
+                    <br>$104.12/м. за 2 года</b></p>
+                </div>
                 <p style="text-align: start;"><button class="button button4">Выбрать</button></p>
             </div>
         </div>
+        <script src="DonbassPlus.js"></script>
     </body>
 </html>
