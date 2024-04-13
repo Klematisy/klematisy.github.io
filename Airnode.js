@@ -1,11 +1,24 @@
+function setCookie(name, value) {
+    updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+    document.cookie = updatedCookie;
+    //window.alert(document.cookie);
+  }
+
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+//window.alert(getCookie("Air1"));
 const whiteAirButton1 = document.getElementById("whiteAir1");
 const pinkAirButton1 = document.getElementById("pinkAir1");
 const goldenAirButton1 = document.getElementById("goldenAir1");
 const redAirButton1 = document.getElementById("redAir1");
 const blackAirButton1 = document.getElementById("blackAir1");
+let updatedCookie;
 
-
-whiteAirButton1.onclick = function(){
+function white() {
     document.getElementById("donbassAir1").src = "images/Air/air.png";
     document.getElementById("whiteAir1").style.borderColor = "#205dc5";
 
@@ -15,7 +28,7 @@ whiteAirButton1.onclick = function(){
     document.getElementById("blackAir1").style.borderColor = "rgb(218, 218, 218)";
 }
 
-pinkAirButton1.onclick = function(){
+function pink() {
     document.getElementById("donbassAir1").src = "images/Air/pink.png";
     document.getElementById("pinkAir1").style.borderColor = "#205dc5";
 
@@ -25,7 +38,7 @@ pinkAirButton1.onclick = function(){
     document.getElementById("blackAir1").style.borderColor = "rgb(218, 218, 218)";
 }
 
-goldenAirButton1.onclick = function(){
+function gold() {
     document.getElementById("donbassAir1").src = "images/Air/golden.png";
     document.getElementById("goldenAir1").style.borderColor = "#205dc5";
 
@@ -35,7 +48,7 @@ goldenAirButton1.onclick = function(){
     document.getElementById("blackAir1").style.borderColor = "rgb(218, 218, 218)";
 }
 
-redAirButton1.onclick = function(){
+function red() {
     document.getElementById("donbassAir1").src = "images/Air/PRed.png";
     document.getElementById("redAir1").style.borderColor = "#205dc5";
 
@@ -45,8 +58,7 @@ redAirButton1.onclick = function(){
     document.getElementById("blackAir1").style.borderColor = "rgb(218, 218, 218)";
 }
 
-blackAirButton1.onclick = function(){
-
+function black() {
     document.getElementById("donbassAir1").src = "images/Air/black.png";
     document.getElementById("blackAir1").style.borderColor = "#205dc5";
 
@@ -54,4 +66,41 @@ blackAirButton1.onclick = function(){
     document.getElementById("pinkAir1").style.borderColor = "rgb(218, 218, 218)";
     document.getElementById("goldenAir1").style.borderColor = "rgb(218, 218, 218)";
     document.getElementById("redAir1").style.borderColor = "rgb(218, 218, 218)";
+}
+
+if (getCookie("Air1") == "whiteAir1") {
+    white();
+} else if (getCookie("Air1") == "pinkAir1") {
+    pink();
+} else if (getCookie("Air1") == "goldenAir1") {
+    gold();
+} else if (getCookie("Air1") == "redAir1") {
+    red();
+} else if (getCookie("Air1") == "blackAir1") {
+    black();
+}
+
+whiteAirButton1.onclick = function(){
+    white();
+    setCookie("Air1", "whiteAir1");
+}
+
+pinkAirButton1.onclick = function(){
+    setCookie("Air1", "pinkAir1");
+    pink();
+}
+
+goldenAirButton1.onclick = function(){
+    setCookie("Air1", "goldenAir1");
+    gold();
+}
+
+redAirButton1.onclick = function(){
+    setCookie("Air1", "redAir1");
+    red();
+}
+
+blackAirButton1.onclick = function(){
+    setCookie("Air1", "blackAir1");
+    black();
 }

@@ -10,14 +10,12 @@ const comp = document.getElementById("compressor");
 let pricePlus = + document.getElementById("pricePlus").textContent;
 
 rad.onclick = function(){
-    
     if (document.getElementById("radiator").style.borderColor == "rgb(32, 93, 197)") {
         document.getElementById("priceRadiator").textContent = " + $200.00";
         document.getElementById("radiator").style.borderColor = "rgb(218, 218, 218)";
 
         document.getElementById("pricePlus").textContent = String(pricePlus - 200);
         pricePlus = + document.getElementById("pricePlus").textContent;
-
     } else {
         document.getElementById("pricePlus").textContent = String(200 + pricePlus);
         
@@ -25,8 +23,7 @@ rad.onclick = function(){
 
         document.getElementById("priceRadiator").textContent = " - $200.00";
         document.getElementById("radiator").style.borderColor = "rgb(32, 93, 197)";
-    }
-    
+    }  
     document.getElementById("creditPlus").textContent = String(truncateDecimal(pricePlus / 24, 2));
 }
 
@@ -80,3 +77,4 @@ comp.onclick = function(){
     }
     document.getElementById("creditPlus").textContent = String(truncateDecimal(pricePlus / 24, 2));
 }
+
