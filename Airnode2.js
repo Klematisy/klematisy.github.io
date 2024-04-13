@@ -17,7 +17,7 @@ const redAirButton2 = document.getElementById("redAir2");
 const blackAirButton2 = document.getElementById("blackAir2");
 let updatedCookie2;
 
-function white() {
+function white1() {
     document.getElementById("donbassAir2").src = "images/Air/air.png";
     document.getElementById("whiteAir2").style.borderColor = "#205dc5";
 
@@ -27,7 +27,7 @@ function white() {
     document.getElementById("blackAir2").style.borderColor = "rgb(218, 218, 218)";
 }
 
-function pink() {
+function pink1() {
     document.getElementById("donbassAir2").src = "images/Air/pink.png";
     document.getElementById("pinkAir2").style.borderColor = "#205dc5";
 
@@ -37,7 +37,7 @@ function pink() {
     document.getElementById("blackAir2").style.borderColor = "rgb(218, 218, 218)";
 }
 
-function gold() {
+function gold1() {
     document.getElementById("donbassAir2").src = "images/Air/golden.png";
     document.getElementById("goldenAir2").style.borderColor = "#205dc5";
 
@@ -47,7 +47,7 @@ function gold() {
     document.getElementById("blackAir2").style.borderColor = "rgb(218, 218, 218)";
 }
 
-function red() {
+function red1() {
     document.getElementById("donbassAir2").src = "images/Air/PRed.png";
     document.getElementById("redAir2").style.borderColor = "#205dc5";
 
@@ -57,7 +57,7 @@ function red() {
     document.getElementById("blackAir2").style.borderColor = "rgb(218, 218, 218)";
 }
 
-function black() {
+function black1() {
     document.getElementById("donbassAir2").src = "images/Air/black.png";
     document.getElementById("blackAir2").style.borderColor = "#205dc5";
 
@@ -68,38 +68,38 @@ function black() {
 }
 
 if (getCookie("Air2") == "whiteAir2") {
-    white();
+    white1();
 } else if (getCookie("Air2") == "pinkAir2") {
-    pink();
+    pink1();
 } else if (getCookie("Air2") == "goldenAir2") {
-    gold();
+    gold1();
 } else if (getCookie("Air2") == "redAir2") {
-    red();
+    red1();
 } else if (getCookie("Air2") == "blackAir2") {
-    black();
+    black1();
 }
 
 whiteAirButton2.onclick = function(){
-    white();
+    white1();
     setCookie("Air2", "whiteAir2");
 }
 
 pinkAirButton2.onclick = function(){
     setCookie("Air2", "pinkAir2");
-    pink();
+    pink1();
 }
 
 goldenAirButton2.onclick = function(){
     setCookie("Air2", "goldenAir2");
-    gold();
+    gold1();
 }
 
 redAirButton2.onclick = function(){
     setCookie("Air2", "redAir2");
-    red();
+    red1();
 }
 
 blackAirButton2.onclick = function(){
     setCookie("Air2", "blackAir2");
-    black();
+    black1();
 }
