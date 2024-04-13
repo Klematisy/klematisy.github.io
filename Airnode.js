@@ -1,7 +1,7 @@
 function setCookie(name, value) {
     updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
     document.cookie = updatedCookie;
-    //window.alert(document.cookie);
+    window.alert(document.cookie);
   }
 
 function getCookie(name) {
@@ -10,7 +10,7 @@ function getCookie(name) {
     ));
     return matches ? decodeURIComponent(matches[1]) : undefined;
   }
-//window.alert(getCookie("Air1"));
+
 const whiteAirButton1 = document.getElementById("whiteAir1");
 const pinkAirButton1 = document.getElementById("pinkAir1");
 const goldenAirButton1 = document.getElementById("goldenAir1");

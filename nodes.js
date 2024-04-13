@@ -1,15 +1,26 @@
+function setCookie(name, value) {
+    updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+    document.cookie = updatedCookie;
+  }
+
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
 
 const blackXButton = document.getElementById("blackX");
 const spaceXButton = document.getElementById("spaceX");
 const whiteXButton = document.getElementById("whiteX");
 
-if (document.cookie == "whiteX") {
+if (getCookie("X") == "whiteX") {
         document.getElementById("donbassX").src = "images/DonbassXFridge.png";
         document.getElementById("whiteX").style.borderColor = "#205dc5";
     
         document.getElementById("spaceX").style.borderColor = "rgb(218, 218, 218)";
         document.getElementById("blackX").style.borderColor = "rgb(218, 218, 218)";
-} else if (document.cookie == "blackX") {
+} else if (getCookie("X") == "blackX") {
         document.getElementById("donbassX").src = "images/DonbassXBlack.png";
         document.getElementById("blackX").style.borderColor = "#205dc5";
         
@@ -24,7 +35,7 @@ if (document.cookie == "whiteX") {
 }
 
 whiteXButton.onclick = function(){
-    document.cookie = encodeURIComponent("whiteX");
+    setCookie("X", "whiteX");
     document.getElementById("donbassX").src = "images/DonbassXFridge.png";
     document.getElementById("whiteX").style.borderColor = "#205dc5";
 
@@ -33,7 +44,7 @@ whiteXButton.onclick = function(){
 }
 
 blackXButton.onclick = function(){
-    document.cookie = encodeURIComponent("blackX");
+    setCookie("X", "blackX");
     document.getElementById("donbassX").src = "images/DonbassXBlack.png";
     document.getElementById("blackX").style.borderColor = "#205dc5";
     
@@ -42,7 +53,7 @@ blackXButton.onclick = function(){
 }
 
 spaceXButton.onclick = function(){
-    document.cookie = encodeURIComponent("spaceX");
+    setCookie("X", "spaceX");
     document.getElementById("donbassX").src = "images/DonbassJetBlack.png";
     document.getElementById("spaceX").style.borderColor = "#205dc5";
 
