@@ -1,7 +1,6 @@
 function setCookie(name, value) {
     updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
     document.cookie = updatedCookie;
-    window.alert(document.cookie);
   }
 
 function getCookie(name) {
