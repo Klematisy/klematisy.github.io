@@ -24,6 +24,11 @@ section {
     gap: 100px;
     grid-template-columns: 1fr 1fr;
 }
+.final-price {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
 .button-product {
     border: 2px solid rgb(218, 218, 218);
     font-size: 100%;
@@ -222,6 +227,7 @@ hr {
 footer {
     right: 0;
     left: 0;
+    bottom: 0;
     color: rgb(148, 148, 148);
     padding-top: 1%;
     padding-left: 18%;

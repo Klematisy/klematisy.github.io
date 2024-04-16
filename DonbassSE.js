@@ -1,3 +1,15 @@
+function setCookie(name, value) {
+    updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+    document.cookie = updatedCookie;
+  }
+
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+
 const truncateDecimal = (num, decimalPlaces) => {
     const factor = Math.pow(10, decimalPlaces);
     return Math.trunc(num * factor) / factor;
@@ -5,6 +17,7 @@ const truncateDecimal = (num, decimalPlaces) => {
 
 const comp = document.getElementById("compressor");
 const fash = document.getElementById("fashion");
+const chosenButton = document.getElementById("chosen");
 let price = + document.getElementById("priceSE").textContent;
 
 comp.onclick = function(){
@@ -40,3 +53,27 @@ fash.onclick = function(){
     }
     document.getElementById("creditSE").textContent = String(truncateDecimal(price / 24, 2));
 }
+
+chosenButton.onclick = function() {
+    let barcode= "";
+    barcode+="30";
+    if (document.getElementById("compressor").style.borderColor == "rgb(32, 93, 197)") {
+        barcode+="K";
+    } else {
+        barcode+="0";
+    }
+    if (document.getElementById("fashion").style.borderColor == "rgb(32, 93, 197)") {
+        barcode+="F";
+    } else {
+        barcode+="0";
+    }
+    let result = "";
+    if (getCookie("products") == null) {
+      setCookie("products","");
+    } else {
+      result+=getCookie("products");
+    }
+    result+="_";
+    result+=barcode;
+    setCookie("products", result);
+  }
