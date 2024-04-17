@@ -20,7 +20,12 @@ var cookie = String(getCookie("products"));
 
 function myFun(i, model) {
     let result = (cookie.slice(0, i) + cookie.slice(i + model + 1, cookie.length))
-    setCookie("products", result);
+    setCookie("products" , result);
+    location.reload();
+}
+
+function deleteAllCookies() {
+    setCookie("products", '');
     location.reload();
 }
 
@@ -162,7 +167,7 @@ for (let i = 0; i < cookie.length; i++) {
                     <div style="text-align: end">
                         <p style="font-size: 100%"><b>$` + price + `.00</b></p>
                         <p style="font-size: 50%">$` + truncateDecimal(price / 12, 2) + `/м.</p>
-                        <a href="javascript:myFun(`+ String(i) +`,`+ String(model) +`)" style="font-size: 60%; color: #205dc5">Remove</a>
+                        <a href="javascript:myFun(`+ String(i) +`,`+ String(model) +`)" style="font-size: 60%; color: #205dc5">Удалить</a>
                     </div>
                 </div>
             </div>
@@ -176,11 +181,12 @@ for (let i = 0; i < cookie.length; i++) {
 if (sum != 0) {
     htmlString += 
             `<div class="Span12" style="padding-left: 18%; padding-right: 18%; text-align: end">
-                <div class="main" style="padding-left: 49%">
+                <div class="main" style="padding-left: 39%">
                     <div class="Span12 final-price" style="padding-bottom: 6%">
-                        <div style="text-align: start;">
-                            <p style="font-size: 100%">Total price:</p>
-                            <p style="font-size: 50%">or DCard credit:</p>
+                        <div style="text-align: start; padding-right: 10%;">
+                            <p style="font-size: 100%">Финальная цена:</p>
+                            <p style="font-size: 50%">или DCard кредит:</p>
+                            <a href="javascript:deleteAllCookies()" style="font-size: 50%">Очистить корзину</a> <!--Удаление cookie-->
                         </div>
                         <div style="text-align: end; padding-right: 20%">
                             <p style="font-size: 100%;"><b>$`+ sum +`.00</p>
