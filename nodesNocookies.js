@@ -13,7 +13,6 @@ function getCookie(name) {
 const blackXButton = document.getElementById("blackX");
 const spaceXButton = document.getElementById("spaceX");
 const whiteXButton = document.getElementById("whiteX");
-const chosenButton = document.getElementById("chosen");
 var color = "white";
 
 whiteXButton.onclick = function(){
@@ -42,25 +41,3 @@ spaceXButton.onclick = function(){
     document.getElementById("whiteX").style.borderColor = "rgb(218, 218, 218)";
     document.getElementById("blackX").style.borderColor = "rgb(218, 218, 218)";
   }
-
-chosenButton.onclick = function() {
-  let barcode= "";
-  barcode+="0";
-  switch (color) {
-    case "white": barcode+="0";
-    break;
-    case "black": barcode+="1";
-    break;
-    case "space": barcode+="2";
-    break;
-  }
-  let result = "";
-  if (getCookie("products") == null) {
-    setCookie("products","");
-  } else {
-    result+=getCookie("products");
-  }
-  result+="_";
-  result+=barcode;
-  setCookie("products", result);
-}

@@ -186,7 +186,7 @@ if (sum != 0) {
                         <div style="text-align: start; padding-right: 10%;">
                             <p style="font-size: 100%">Финальная цена:</p>
                             <p style="font-size: 50%">или DCard кредит:</p>
-                            <a href="javascript:deleteAllCookies()" style="font-size: 50%">Очистить корзину</a> <!--Удаление cookie-->
+                            <a href="javascript:deleteAllCookies()" style="font-size: 50%; color: #205dc5">Очистить корзину</a> <!--Удаление cookie-->
                         </div>
                         <div style="text-align: end; padding-right: 20%">
                             <p style="font-size: 100%;"><b>$`+ sum +`.00</p>
