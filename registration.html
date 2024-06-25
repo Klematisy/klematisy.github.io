@@ -5,7 +5,9 @@
         <meta charset="ASCII">
         <link rel="stylesheet" type="text/css" href="file.css">
     </head>
+
     <body>
+
         <header class="header">
             <nav class="navbar">
                 <a href="index.html"><img class="logo" src="images/CoalLogo.png"></a>
@@ -17,55 +19,31 @@
                 <a href="basket.html"><img class="logo" src="images/корзина.png"></a>
                 <a href="account.html"><img style="width: 3wh; height: 3vh;" src="images/user-profile-black.png"></a>
             </nav>
-            <nav class="navbar-under">
-                <b>DonBass Air</b>
+            <nav class="navbar-under" style="font-size: 60%;">
+                <b>Зарегистрируйте аккаунт для быстрого пользования магазином.</b>
             </nav>
         </header>
-        <hr>
 
-        <div class="main" style="padding-left: 20%; padding-right: 20%; padding-top: 3%;">
-            <div class="Span6" style="text-align: center;">
-                <img src="images/Air/air.png" style="width: 100%;" id="donbassAir1">
-            </div>
-            <div class="Span6" style="padding: 5%">
-                <p style="font-size: 100%;"><b>Кастомизируйте свой 26" дюймовый Donbass Air</b></p>
-                <p class="info">Система Air flow от компании Coal
-                <br>Материал основного корпуса: сталь
-                <br>Уровень шума: 50 дБ
-                <br>Тип: однокамерный
-                <br>
-                <br>Дверца сделана по механизму - TM2009
-                <br><br>
-                <hr>
+        <div class="main" style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 26%">
+            <div class="Span12" style="text-align: center;">
+                <p style="font-size: 75%;">
+                    Создайте аккаунт Coal Store
                 </p>
-
-                <p class="info">
-                    <b>Coal Trade In</b>
-                    <br><br>Возьмите кредит на новый Donbass, когда обмениваете его на прошлую версию. 
-                    Это даст вам скидку, в зависимости от сданной техники. Либо вы можете сами 
-                    заняться переработкой устройств<br><br>
-                </p>
-                <hr>
-
-                <p class="info">
-                    <b>Цвет:</b>
-                    <br><br>
-                    <button class="button-product" style="padding: 26px 44%;" id="whiteAir1">Белый</button>
-                    <br>
-                    <br>
-                    <button class="button-product" style="padding: 26px 42%;" id="pinkAir1">Розовый</button>
-                    <br>
-                    <br>
-                    <button class="button-product" style="padding: 26px 42%;" id="goldenAir1">Золотой</button>
-                    <br>
-                    <br>
-                    <button class="button-product" style="padding: 26px 42%;" id="redAir1">Product Red</button>
-                    <br>
-                    <br>
-                    <button class="button-product" style="padding: 26px 42%;" id="blackAir1">Чёрный</button>
-                </p>
+                
+                <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
+                    <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+                    <label for="name" class="form__label">Ваша электронная почта</label>
+                </div>
+                
+                <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
+                    <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+                    <label for="name" class="form__label">Придумайте пароль</label>
+                </div>
+                <button class="button button3">Создать</button></a>
             </div>
         </div>
+
+
         <footer>
             <p> Стоимость обмена зависит от состояния, года выпуска и конфигурации вашего устройства, 
                 на которое распространяется действие программы обмена. Не на все устройства можно получить кредит. 
@@ -99,13 +77,5 @@
             <hr>
             <p>Copyright © 2024 Coal Inc. Все права защищены.</p>
         </footer>
-        <div class="sale1">
-            <div class="sale">
-                <p style="text-align: end; font-size: 120%;"><b>$800.00 или
-                <br>$66.6/м. за 1 год</b></p>
-                <p style="text-align: start;"><a href="great_basket.html"><button id="chosen" class="button button4">Выбрать</button></a></p>
-            </div>
-        </div>
-        <script src="Airnode.js"></script>
     </body>
 </html>
