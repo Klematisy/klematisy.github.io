@@ -2,11 +2,53 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta charset="ASCII">
         <link rel="stylesheet" type="text/css" href="file.css">
     </head>
-
     <body>
+
+        <?php
+            $mysql = new mysqli("localhost", "root", "", "site_history");
+            $mysql->query("SET NAMES utf8");
+
+            $doc = new DomDocument;
+
+            $sql = "SHOW TABLES LIKE 'users'";
+            $result = $mysql->query($sql);
+
+            $email = $_COOKIE["email"];
+            $bas_res = $_COOKIE["products"];
+
+            $basket = $mysql->query("SELECT * FROM `users` WHERE email = '$email'");
+            $b1 = $mysql->query("SELECT * FROM `users` WHERE email = '$email'");
+
+
+            if (($_COOKIE["prod_res"] == $b1->fetch_assoc()['basket']) && ($bas_res != $_COOKIE["prod_res"])) {
+                $mysql->query("UPDATE `users` SET `basket` = '$bas_res' WHERE `email` = '$email' ");
+                setcookie("prod_res", $bud_res);
+            } else {
+                setcookie("products", $basket->fetch_assoc()['basket']);
+                setcookie("prod_res", $basket->fetch_assoc()['basket']);
+            }
+
+            $mysql->close();
+        ?>
+
+        <script>
+            function getCookie(name) {
+                let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+                ));
+                return matches ? decodeURIComponent(matches[1]) : undefined;
+            }
+
+            function setCookie(name, value) {
+                updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+                document.cookie = updatedCookie;
+            }
+
+            setCookie("prod_res", getCookie("products"));
+        </script>
+
         <header class="header">
             <nav class="navbar">
                 <a href="index.html"><img class="logo" src="images/CoalLogo.png"></a>
@@ -15,86 +57,20 @@
                 <a href="catalog.html" style="padding: 4px;">Поддержка</a>
                 <a href="magazin.html" style="padding: 4px">Магазин</a>
                 <a href="director.html" style="padding: 4px">Директор</a>
-                <a href="basket.html"><img class="logo" src="images/корзина.png"></a>
-                <a href="account.html"><img style="width: 3wh; height: 3vh;" src="images/user-profile-black.png"></a>
-            </nav>
-            <nav class="navbar-under">
-                <b>DonBass X</b>
+                <a href="basket.php"><img class="logo" src="images/корзина.png"></a>
+                <a href="account.php"><img style="width: 3wh; height: 3vh;" src="images/user-profile-black.png"></a>
             </nav>
         </header>
-        <hr>
 
-        <div class="main">
-            <div class="Span12" style="padding: 1%; padding-left: 18%; padding-right: 18%; padding-bottom: 5%; font-size: 80%;">
-                <h1>Ваш DonBass X был добавлен в корзину!</h1>
-                <a href="basket.html" style="font-size: 80%; color: #205dc5">Перейти в корзину</a>
+        <div id="mainComponent" class="main">
+            <div class="Span12" style="padding-left: 18%; padding-right: 18%; font-size: 50%; padding-top: 5%; padding-bottom: 5%;">
+                <h1>Просмотрите свою корзину.</h1>
+                <p>Бесплатная доставка и возврат.</p>
             </div>
 
-            <div class="Span12" style="padding: 1%; padding-left: 14%; padding-right: 14%; padding-bottom: 5%; font-size: 80%;">
-                <hr>
-            </div>
-
-            <div class="Span12" style="padding: 1%; padding-left: 18%; padding-right: 18%; padding-bottom: 5%; font-size: 80%;">
-                <p style="text-align: center;">Также взгляните на другие продукты Coal</p>
-            </div>
-
-            <div class="Span12" style="padding-right: 15%; padding-left: 15%; padding-bottom: 5%">
-                <div class="main">
-                    <div class="Span4 product_field" style="font-size: 50%; padding: 5%; ">
-                        <p style="text-align: center;"><img src="images/Холодильник21.png" style="width: 50%;">
-                            <br><br><b>DonBass X Mini</b><br><br>
-                            
-                        <hr>
-                        <p class="info">
-                            <b style="text-align: center;">Coal Trade In</b>
-                            <br><br>Возьмите кредит на новый Donbass, когда обмениваете его на прошлую версию. 
-                            Это даст вам скидку, в зависимости от сданной техники. Либо вы можете сами 
-                            заняться переработкой устройств<br><br>
-                        </p>
-                        <div style="text-align: center;">
-                            <a href="DonbassMini.html"><button class="button button4">Подробнее</button></a>
-                        </div>
-                    </div>
-
-                    <div class="Span4 product_field" style="font-size: 50%; padding: 5%; ">
-                        <p style="text-align: center; font-size: 100%; padding-bottom: 1.5%;"><img src="images/Air/air.png" style="width: 54%;">
-                            <br><br><b>DonBass Air</b><br><br>
-                        </p>
-
-                        <hr>
-
-                        <p class="info">
-                            
-                            <b>Coal Trade In</b>
-                            <br><br>Возьмите кредит на новый Donbass, когда обмениваете его на прошлую версию. 
-                            Это даст вам скидку, в зависимости от сданной техники. Либо вы можете сами 
-                            заняться переработкой устройств<br><br>
-                        </p>    
-                        <div style="text-align: center;">
-                            <a href="DonbassAir2.html"><button class="button button4">Подробнее</button></a>
-                        </div>
-                    </div>
-
-                    <div class="Span4 product_field" style="font-size: 50%; padding: 5%; ">
-                        <p style="text-align: center; padding-bottom: 1%;"><img src="images/DonbassSE.png" style="width: 37.5%;">
-                            <br><br><b>Donbass SE 2</b><br><br>
-                        </p>
-                    
-                        <hr>
-                        <p class="info">
-                            <b>Coal Trade In</b>
-                            <br><br>Возьмите кредит на новый Donbass, когда обмениваете его на прошлую версию. 
-                            Это даст вам скидку, в зависимости от сданной техники. Либо вы можете сами 
-                            заняться переработкой устройств<br><br>
-                        </p>
-                        <div style="text-align: center;">
-                            <a href="DonbassSE.html"><button class="button button4">Подробнее</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
+        <script src="basket.js"></script>
         <footer>
             <p> Стоимость обмена зависит от состояния, года выпуска и конфигурации вашего устройства, 
                 на которое распространяется действие программы обмена. Не на все устройства можно получить кредит. 

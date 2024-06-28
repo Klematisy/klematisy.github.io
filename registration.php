@@ -8,6 +8,72 @@
 
     <body>
 
+        <script>
+            function getCookie(name) {
+                let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+                ));
+                return matches ? decodeURIComponent(matches[1]) : undefined;
+            }
+
+            function setCookie(name, value) {
+                updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+                document.cookie = updatedCookie;
+            }
+
+            if (getCookie("inAccount") == "true") {
+                window.location.href = 'account.php';
+            }
+        </script>
+
+        <?php
+            $mail = $_GET["email"];
+            $uname = $_GET["username"];
+            $pass = $_GET["password"];
+            $re_pass = $_GET["password_retry"];
+            $bus_prod = $_COOKIE['products'];
+
+            $mysql = new mysqli("localhost", "root", "", "site_history");
+            $mysql->query("SET NAMES utf8");
+
+            $sql = "SHOW TABLES LIKE 'users'";
+            $result = $mysql->query($sql);    
+            
+            // $_SESSION['name'] = "12";
+
+            if ($result->num_rows > 0) {
+                //echo "Таблица существует в базе данных.";
+                if (($pass == $re_pass) && ($pass != "")) {
+                    $mysql->query("INSERT INTO `users` (`name`, `email`, `password`, `basket`) VALUES('$uname', '$mail', '$pass', '$bus_prod')");
+                    setcookie("inAccount", "true");
+                    setcookie("email", $mail);
+                    // echo "Таблица существует в базе данных.lkfdjlkfjasdklfjkladsjflkasdjf ";
+                }
+            } else {
+                if ($mysql->connect_error) { 
+                    echo "Error Number:".$mysql->connect_errno."<br>";
+                    echo "Error:".$mysql->connect_error;
+                } else {
+                    // echo "Host info: ".$mysql->host_info;
+                    $mysql->query("CREATE TABLE `users` (
+                        id INT(11) NOT NULL AUTO_INCREMENT,
+                        name VARCHAR(60) NOT NULL,
+                        email VARCHAR(60) NOT NULL,
+                        password VARCHAR(60) NOT NULL,
+                        basket VARCHAR(60) NOT NULL,
+                        PRIMARY KEY(id)
+                    )");
+                }
+            }
+            $mysql->close();
+
+            $mail = NULL;
+            $uname = NULL;
+            $pass = NULL;
+            $re_pass = NULL;
+            $bus_prod = NULL;
+        ?>
+
         <header class="header">
             <nav class="navbar">
                 <a href="index.html"><img class="logo" src="images/CoalLogo.png"></a>
@@ -16,37 +82,45 @@
                 <a href="catalog.html" style="padding: 4px;">Поддержка</a>
                 <a href="magazin.html" style="padding: 4px">Магазин</a>
                 <a href="director.html" style="padding: 4px">Директор</a>
-                <a href="basket.html"><img class="logo" src="images/корзина.png"></a>
-                <a href="account.html"><img style="width: 3wh; height: 3vh;" src="images/user-profile-black.png"></a>
+                <a href="basket.php"><img class="logo" src="images/корзина.png"></a>
+                <a href="account.php"><img style="width: 3wh; height: 3vh;" src="images/user-profile-black.png"></a>
             </nav>
             <nav class="navbar-under" style="font-size: 60%;">
-                <b>Войдите в аккаунт для быстрого пользования магазином.</b>
+                <b>Зарегистрируйте аккаунт для быстрого пользования магазином.</b>
             </nav>
         </header>
-        
-        <div class="main" style="padding-top: 5%; padding-left: 30%; padding-right: 30%;padding-bottom: 13%">
+
+        <div class="main" style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 26%">
             <div class="Span12" style="text-align: center;">
                 <p style="font-size: 75%;">
-                    Войдите в Coal Store
+                    Создайте аккаунт Coal Store
                 </p>
-                
-                <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
-                    <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
-                    <label for="name" class="form__label">Электронная почта</label>
-                </div>
-                
-                <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
-                    <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
-                    <label for="name" class="form__label">Пароль</label>
-                </div>
-                <button class="button button3">Войти</button></a>
+                <form action="registration.php" method="get">
+                    <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
+                        <input type="input" class="form__field" placeholder="Name" name="email" id='name1' required />
+                        <label for="name" class="form__label">Ваша электронная почта</label>
+                    </div>
 
-                <p style="font-size: 50%; padding-top: 20%;">
-                    Или если вы не имеете аккаунта в Coal Store, то вы можете <a style="color: blue;" href="registration.html">зарегистрироваться</a>
-                </p>
+                    <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
+                        <input type="text" class="form__field" placeholder="Name" name="username" id='name2' required />
+                        <label for="name" class="form__label">Ваш ник</label>
+                    </div>
+                    
+                    <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
+                        <input type="password" class="form__field" placeholder="Name" name="password" id='pass' required />
+                        <label for="name" class="form__label">Придумайте пароль</label>
+                    </div>
+
+                    <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
+                        <input type="password" class="form__field" placeholder="Name" name="password_retry" id='pass_retry' required />
+                        <label for="name" class="form__label">Повторите пароль</label>
+                    </div>
+                    <script src="registration.js"></script>
+                    <button type="sumbit" class="button button3">Создать</button>
+                    <!-- <input id="create" class="button button3" type="submit" value="Создать"> -->
+                </form>
             </div>
         </div>
-
 
         <footer>
             <p> Стоимость обмена зависит от состояния, года выпуска и конфигурации вашего устройства, 

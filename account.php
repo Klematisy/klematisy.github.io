@@ -7,7 +7,6 @@
     </head>
 
     <body>
-
         <header class="header">
             <nav class="navbar">
                 <a href="index.html"><img class="logo" src="images/CoalLogo.png"></a>
@@ -16,30 +15,89 @@
                 <a href="catalog.html" style="padding: 4px;">Поддержка</a>
                 <a href="magazin.html" style="padding: 4px">Магазин</a>
                 <a href="director.html" style="padding: 4px">Директор</a>
-                <a href="basket.html"><img class="logo" src="images/корзина.png"></a>
-                <a href="account.html"><img style="width: 3wh; height: 3vh;" src="images/user-profile-black.png"></a>
+                <a href="basket.php"><img class="logo" src="images/корзина.png"></a>
+                <a href="account.php"><img style="width: 3wh; height: 3vh;" src="images/user-profile-black.png"></a>
             </nav>
             <nav class="navbar-under" style="font-size: 60%;">
-                <b>Зарегистрируйте аккаунт для быстрого пользования магазином.</b>
+                <b>Войдите в аккаунт для быстрого пользования магазином.</b>
             </nav>
         </header>
 
-        <div class="main" style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 26%">
+        <script src="account.js"></script>
+        
+        <?php
+            $mail = $_GET["email"];
+            $pass = $_GET["password"];
+
+            $mysql = new mysqli("localhost", "root", "", "site_history");
+            $mysql->query("SET NAMES utf8");
+
+            $sql = "SHOW TABLES LIKE 'users'";
+            $result = $mysql->query($sql);
+
+            if ($result->num_rows > 0) {
+
+                if ($mail != "") {
+                    $res_mail = $mysql->query("SELECT * FROM `users` WHERE email = '$mail'");
+                    $res_pass = $mysql->query("SELECT * FROM `users` WHERE email = '$mail'");
+                    $res_name = $mysql->query("SELECT * FROM `users` WHERE email = '$mail'");
+                    
+                    if (($res_mail->fetch_assoc()['email'] == $mail) && 
+                        ($res_pass->fetch_assoc()['password'] == $pass)) {
+                        // echo "В аккаунте";
+
+                        $rmail = $mysql->query("SELECT * FROM `users` WHERE email = '$mail'");
+                        $basket = $mysql->query("SELECT * FROM `users` WHERE email = '$mail'");
+
+                        setcookie("inAccount", "true");
+                        setcookie("email", $rmail->fetch_assoc()['email']);
+                        setcookie("products", $basket->fetch_assoc()['basket']);
+                    }
+                }
+
+            } else {
+                if ($mysql->connect_error) { 
+                    echo "Error Number:".$mysql->connect_errno."<br>";
+                    echo "Error:".$mysql->connect_error;
+                } else {
+                    // echo "Host info: ".$mysql->host_info;
+                    $mysql->query("CREATE TABLE `users` (
+                        id INT(11) NOT NULL AUTO_INCREMENT,
+                        name VARCHAR(60) NOT NULL,
+                        email VARCHAR(60) NOT NULL,
+                        password VARCHAR(60) NOT NULL,
+                        basket VARCHAR(60) NOT NULL,
+                        PRIMARY KEY(id)
+                    )");
+                }
+            }
+            $mysql->close();
+        ?>
+
+        <div class="main" style="padding-top: 5%; padding-left: 30%; padding-right: 30%;padding-bottom: 13%">
             <div class="Span12" style="text-align: center;">
                 <p style="font-size: 75%;">
-                    Создайте аккаунт Coal Store
+                    Войдите в Coal Store
                 </p>
-                
-                <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
-                    <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
-                    <label for="name" class="form__label">Ваша электронная почта</label>
-                </div>
-                
-                <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
-                    <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
-                    <label for="name" class="form__label">Придумайте пароль</label>
-                </div>
-                <button class="button button3">Создать</button></a>
+
+                <form action="account.php" method="get">
+                    <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
+                        <input type="input" class="form__field" placeholder="Name" name="email" required />
+                        <label for="name" class="form__label">Электронная почта</label>
+                    </div>
+                    
+                    <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
+                        <input type="password" class="form__field" placeholder="Name" name="password" required />
+                        <label for="name" class="form__label">Пароль</label>
+                    </div>
+
+                    <button type="sumbit" class="button button3">Войти</button>
+                </form>
+
+                <p style="font-size: 50%; padding-top: 20%;">
+                    Или если вы не имеете аккаунта в Coal Store, то вы можете <a style="color: blue;" href="registration.php">зарегистрироваться</a>
+                </p>
+
             </div>
         </div>
 

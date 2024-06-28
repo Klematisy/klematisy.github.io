@@ -7,6 +7,7 @@
     </head>
 
     <body>
+
         <header class="header">
             <nav class="navbar">
                 <a href="index.html"><img class="logo" src="images/CoalLogo.png"></a>
@@ -18,80 +19,60 @@
                 <a href="basket.php"><img class="logo" src="images/корзина.png"></a>
                 <a href="account.php"><img style="width: 3wh; height: 3vh;" src="images/user-profile-black.png"></a>
             </nav>
-            <nav class="navbar-under">
-                <b>DonBass Air</b>
+            <nav class="navbar-under" style="font-size: 60%;">
+                <b>Ваш аккаунт сохраняет вашу корзину.</b>
             </nav>
         </header>
-        <hr>
-        <div class="main tablet_sale" style="padding-bottom: 5%;">
-            <div class="Span12" style="text-align: center;">
-                <h2>Выберете свой Donbass Air.</h2>
-            </div>
-            
-            <div class="Span6 product_field" style="font-size: 80%; padding-bottom: 5%;">
-                <p style="text-align: center;"><img id="donbassAir1" src="images/Air/air.png" style="width: 80%;"></p>
-                <button class="button-color" style="background-color: white;" id="whiteAir1"></button>
-                <button class="button-color" style="background-color: pink;" id="pinkAir1"></button>
-                <button class="button-color" style="background-color: rgb(203, 176, 118);" id="goldenAir1"></button>
-                <button class="button-color" style="background-color: red;" id="redAir1"></button>
-                <button class="button-color" style="background-color: black;" id="blackAir1"></button>
-                <script src="AirnodeNoCookies.js"></script>
-                <p>
-                    <b>DonBass Air</b><br><br>
-                    <b>120V<br>
-                    100 Вт<br>
-                    Air Flow<br>
-                    </b>
-                </p>
-                <p style="font-size: 60%; color: rgb(92, 92, 92);">26" дюймовый стальной корпус<br>
-                    Материал: нержавеющая сталь<br>
-                    Уровень шума: 20 дБ<br>
-                    Тип: однокамерный<br>
-                </p>
-                <p><b>$1000.00</b></p>
-                <p style="font-size: 80%; color: rgb(92, 92, 92);">или</p>
-                <p><b>$83.33/м. за 1 год</b></p>
-                <hr>
-                <p class="info">
-                    <b>Coal Trade In</b>
-                    <br><br>Возьмите кредит на новый Donbass, когда обмениваете его на прошлую версию. 
-                    Это даст вам скидку, в зависимости от сданной техники. Либо вы можете сами 
-                    заняться переработкой устройств<br><br>
-                </p>
-                <a href="DonbassAir2.html"><button class="button button4">Выбрать</button></a>
-            </div>
+        
+        <script>
+            function getCookie(name) {
+                let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+                ));
+                return matches ? decodeURIComponent(matches[1]) : undefined;
+            }
 
-            <div class="Span6 product_field" style="font-size: 80%; padding-bottom: 5%;">
-                <p style="text-align: center;"><img id="donbassAir2" src="images/Air/air.png" style="width: 80%;"></p>
-                <button class="button-color" style="background-color: white;" id="whiteAir2"></button>
-                <button class="button-color" style="background-color: pink;" id="pinkAir2"></button>
-                <button class="button-color" style="background-color: rgb(203, 176, 118);" id="goldenAir2"></button>
-                <button class="button-color" style="background-color: red;" id="redAir2"></button>
-                <button class="button-color" style="background-color: black;" id="blackAir2"></button>
-                <script src="Airnode2NoCookies.js"></script>
-                <p>
-                    <b>DonBass Air</b><br><br>
-                    <b>100V<br>
-                    90 Вт<br>
-                    Air Flow<br></b></p>
-                    <p style="font-size: 60%; color: rgb(92, 92, 92);">26" дюймовый стальной корпус<br>
-                    Материал: сталь<br>
-                    Уровень шума: 20 дБ<br>
-                    Тип: однокамерный<br>
-                    </p>
-                    <p><b>$800.00</b></p>
-                    <p style="font-size: 80%; color: rgb(92, 92, 92);">или</p>
-                    <p><b>$75/м. за 1 год</b></p>
-                    <hr>
-                    <p class="info">
-                        <b>Coal Trade In</b>
-                        <br><br>Возьмите кредит на новый Donbass, когда обмениваете его на прошлую версию. 
-                        Это даст вам скидку, в зависимости от сданной техники. Либо вы можете сами 
-                        заняться переработкой устройств<br><br>
-                    </p>
-                    <a href="DonbassAir.html"><button class="button button4">Выбрать</button></a>
+            function setCookie(name, value) {
+                updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+                document.cookie = updatedCookie;
+            }
+
+            if (getCookie("inAccount") != "true") {
+                window.location.href = 'account.php';
+            }
+
+            setCookie("prod_res", getCookie("products"));
+            
+
+        </script>
+
+        <div class="main" style="padding-top: 5%; padding-left: 30%; padding-right: 30%;padding-bottom: 13%">
+            <div class="Span12" style="text-align: center;">
+                <p style="font-size: 75%;">
+                    Вы находитесь в аккаунте Coal Store
+                </p>
+                <button id="quit" class="button button3">Выйти</button>
+
+                <p style="font-size: 50%; padding-top: 20%;">
+                    Или если вы хотите удалить аккаунт в Coal Store, <br>то вы можете это <a id="delete" style="color: blue;" href="registration.php">сделать</a>
+                </p>
             </div>
         </div>
+        
+        <script>
+            function setCookie(name, value) {
+                updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+                document.cookie = updatedCookie;
+            }
+            const q = document.getElementById("quit");
+
+            q.onclick = function() {
+                setCookie("inAccount", "false");
+                setCookie("email", "");
+                location.reload();
+            }
+        </script>
+
         <footer>
             <p> Стоимость обмена зависит от состояния, года выпуска и конфигурации вашего устройства, 
                 на которое распространяется действие программы обмена. Не на все устройства можно получить кредит. 

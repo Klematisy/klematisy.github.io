@@ -20,7 +20,7 @@ var cookie = String(getCookie("products"));
 
 function myFun(i, model) {
     let result = (cookie.slice(0, i) + cookie.slice(i + model + 1, cookie.length))
-    setCookie("products" , result);
+    setCookie("products", result);
     location.reload();
 }
 
@@ -167,7 +167,7 @@ for (let i = 0; i < cookie.length; i++) {
                     <div style="text-align: end">
                         <p style="font-size: 100%"><b>$` + price + `.00</b></p>
                         <p style="font-size: 50%">$` + truncateDecimal(price / 12, 2) + `/м.</p>
-                        <a href="javascript:myFun(`+ String(i) +`,`+ String(model) +`)" style="font-size: 60%; color: #205dc5">Удалить</a>
+                        <a id="delete" href="javascript:myFun(`+ String(i) +`,`+ String(model) +`)" style="font-size: 60%; color: #205dc5">Удалить</a>
                     </div>
                 </div>
             </div>
