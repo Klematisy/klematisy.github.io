@@ -2,68 +2,76 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta charset="ASCII">
-        <link rel="stylesheet" type="text/css" href="file.css">
+        <link rel="stylesheet" type="text/css" href="../file.css">
     </head>
     <body>
+
+        <?php
+            $mysql = new mysqli("localhost", "root", "", "site_history");
+            $mysql->query("SET NAMES utf8");
+
+            $doc = new DomDocument;
+
+            $sql = "SHOW TABLES LIKE 'users'";
+            $result = $mysql->query($sql);
+
+            $email = $_COOKIE["email"];
+            $bas_res = $_COOKIE["products"];
+
+            $basket = $mysql->query("SELECT * FROM `users` WHERE email = '$email'");
+            $b1 = $mysql->query("SELECT * FROM `users` WHERE email = '$email'");
+
+            if ($_COOKIE["inAccount"] == "true") {
+                if (($_COOKIE["prod_res"] == $b1->fetch_assoc()['basket']) && ($bas_res != $_COOKIE["prod_res"])) {
+                    $mysql->query("UPDATE `users` SET `basket` = '$bas_res' WHERE `email` = '$email' ");
+                    setcookie("prod_res", $bud_res);
+                } else {
+                    setcookie("products", $basket->fetch_assoc()['basket']);
+                    setcookie("prod_res", $basket->fetch_assoc()['basket']);
+                }
+            }
+
+            $mysql->close();
+        ?>
+
+        <script>
+            function getCookie(name) {
+                let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+                ));
+                return matches ? decodeURIComponent(matches[1]) : undefined;
+            }
+
+            function setCookie(name, value) {
+                updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+                document.cookie = updatedCookie;
+            }
+
+            setCookie("prod_res", getCookie("products"));
+        </script>
+
         <header class="header">
             <nav class="navbar">
-                <a href="index.html"><img class="logo" src="images/CoalLogo.png"></a>
-                <a href="Donbass_X.html" style="padding: 4px;">DonBass</a>
-                <a href="Donbass_Air.html" style="padding: 4px;">DonBass Air</a>
-                <a href="catalog.html" style="padding: 4px;">Поддержка</a>
-                <a href="magazin.html" style="padding: 4px">Магазин</a>
-                <a href="director.html" style="padding: 4px">Директор</a>
-                <a href="basket.php"><img class="logo" src="images/корзина.png"></a>
-                <a href="account.php"><img style="width: 3wh; height: 3vh;" src="images/user-profile-black.png"></a>
-            </nav>
-            <nav class="navbar-under">
-                <b>DonBass X Mini</b>
+                <a href="../html/index.html"><img class="logo" src="../images/CoalLogo.png"></a>
+                <a href="../html/Donbass_X.html" style="padding: 4px;">DonBass</a>
+                <a href="../html/Donbass_Air.html" style="padding: 4px;">DonBass Air</a>
+                <a href="../html/catalog.html" style="padding: 4px;">Поддержка</a>
+                <a href="../html/magazin.html" style="padding: 4px">Магазин</a>
+                <a href="../html/director.html" style="padding: 4px">Директор</a>
+                <a href="basket.php"><img class="logo" src="../images/корзина.png"></a>
+                <a href="account.php"><img style="width: 3wh; height: 3vh;" src="../images/user-profile-black.png"></a>
             </nav>
         </header>
-        <hr>
 
-        <div class="main" style="padding-left: 20%; padding-right: 20%; padding-top: 3%;">
-            <div class="Span6" style="text-align: center;">
-                <img src="images/Холодильник21.png" style="width: 100%;">
+        <div id="mainComponent" class="main">
+            <div class="Span12" style="padding-left: 18%; padding-right: 18%; font-size: 50%; padding-top: 5%; padding-bottom: 5%;">
+                <h1>Просмотрите свою корзину.</h1>
+                <p>Бесплатная доставка и возврат.</p>
             </div>
-            <div class="Span6" style="padding: 5%">
-                <p style="font-size: 100%;"><b>Кастомизируйте свой 41" дюймовый Donbass X Mini</b></p>
-                <p class="info">
-                <br>Материал основного корпуса: сталь
-                <br>Цвет: белый
-                <br>Уровень шума: 40 дБ
-                <br>Тип: двухкамерный
-                <br>
-                <br>Дверца сделана по механизму - Butterfly Mechanism 
-                <br><br>
-                <hr>
-                </p>
 
-                <p class="info">
-                    <b>Coal Trade In</b>
-                    <br><br>Возьмите кредит на новый Donbass, когда обмениваете его на прошлую версию. 
-                    Это даст вам скидку, в зависимости от сданной техники. Либо вы можете сами 
-                    заняться переработкой устройств<br><br>
-                </p>
-                <hr>
-
-                <p class="info">
-                    <b>Комплектация:</b>
-                    <br><br>
-                    <button id="cabble" class="button-product button-complectation" style="padding: 10px 5%;">
-                        <p style="text-align: start;">Удлинённый кабель питания</p>
-                        <p id="cabblePrice" style="text-align: end; align-self: center;"> + $50.00</p>
-                    </button>
-                    <br>
-                    <button id="compressor" class="button-product button-complectation" style="padding: 10px 5%;">
-                        <p style="text-align: start;">Дополнительная калибровка компрессора</p>
-                        <p id="compressorPrice" style="text-align: end; align-self: center;"> + $500.00</p>
-                    </button>
-                </p>
-                
-            </div>
         </div>
+
+        <script src="../js/basket.js"></script>
         <footer>
             <p> Стоимость обмена зависит от состояния, года выпуска и конфигурации вашего устройства, 
                 на которое распространяется действие программы обмена. Не на все устройства можно получить кредит. 
@@ -97,13 +105,5 @@
             <hr>
             <p>Copyright © 2024 Coal Inc. Все права защищены.</p>
         </footer>
-        <div class="sale1">
-            <div class="sale">
-                <p style="text-align: end; font-size: 120%;"><b>$<b id="priceMini">1299</b>.00 или
-                <br>$<b id="creditMini">54.12</b>/м. за 2 года</b></p>
-                <p style="text-align: start;"><a href="great_basket.php"><button id="chosen" class="button button4">Выбрать</button></a></p>
-            </div>
-        </div>
-        <script src="DonbassMini.js"></script>
     </body>
 </html>

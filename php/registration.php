@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta charset="ASCII">
-        <link rel="stylesheet" type="text/css" href="file.css">
+        <link rel="stylesheet" type="text/css" href="../file.css">
     </head>
 
     <body>
@@ -76,14 +76,14 @@
 
         <header class="header">
             <nav class="navbar">
-                <a href="index.html"><img class="logo" src="images/CoalLogo.png"></a>
-                <a href="Donbass_X.html" style="padding: 4px;">DonBass</a>
-                <a href="Donbass_Air.html" style="padding: 4px;">DonBass Air</a>
-                <a href="catalog.html" style="padding: 4px;">Поддержка</a>
-                <a href="magazin.html" style="padding: 4px">Магазин</a>
-                <a href="director.html" style="padding: 4px">Директор</a>
-                <a href="basket.php"><img class="logo" src="images/корзина.png"></a>
-                <a href="account.php"><img style="width: 3wh; height: 3vh;" src="images/user-profile-black.png"></a>
+            <a href="../html/index.html"><img class="logo" src="../images/CoalLogo.png"></a>
+                <a href="../html/Donbass_X.html" style="padding: 4px;">DonBass</a>
+                <a href="../html/Donbass_Air.html" style="padding: 4px;">DonBass Air</a>
+                <a href="../html/catalog.html" style="padding: 4px;">Поддержка</a>
+                <a href="../html/magazin.html" style="padding: 4px">Магазин</a>
+                <a href="../html/director.html" style="padding: 4px">Директор</a>
+                <a href="basket.php"><img class="logo" src="../images/корзина.png"></a>
+                <a href="account.php"><img style="width: 3wh; height: 3vh;" src="../images/user-profile-black.png"></a>
             </nav>
             <nav class="navbar-under" style="font-size: 60%;">
                 <b>Зарегистрируйте аккаунт для быстрого пользования магазином.</b>
@@ -97,25 +97,25 @@
                 </p>
                 <form action="registration.php" method="get">
                     <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
-                        <input type="input" class="form__field" placeholder="Name" name="email" id='name1' required />
+                        <input type="input" class="form__field" name="email" placeholder="Name" id='name1' required />
                         <label for="name" class="form__label">Ваша электронная почта</label>
                     </div>
 
                     <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
-                        <input type="text" class="form__field" placeholder="Name" name="username" id='name2' required />
+                        <input type="text" class="form__field" name="username" placeholder="Name" id='name2' required />
                         <label for="name" class="form__label">Ваш ник</label>
                     </div>
                     
                     <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
-                        <input type="password" class="form__field" placeholder="Name" name="password" id='pass' required />
+                        <input type="password" class="form__field" name="password" placeholder="Name" id='pass' required />
                         <label for="name" class="form__label">Придумайте пароль</label>
                     </div>
 
                     <div class="form__group field" style="left: 26%; padding-bottom: 5%;">
-                        <input type="password" class="form__field" placeholder="Name" name="password_retry" id='pass_retry' required />
+                        <input type="password" class="form__field" name="password_retry" placeholder="Name" id='pass_retry' required />
                         <label for="name" class="form__label">Повторите пароль</label>
                     </div>
-                    <script src="registration.js"></script>
+                    <script src="../js/registration.js"></script>
                     <button type="sumbit" class="button button3">Создать</button>
                     <!-- <input id="create" class="button button3" type="submit" value="Создать"> -->
                 </form>

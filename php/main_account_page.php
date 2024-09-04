@@ -2,49 +2,76 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link rel="stylesheet" type="text/css" href="file.css">
+        <meta charset="ASCII">
+        <link rel="stylesheet" type="text/css" href="../file.css">
     </head>
 
     <body>
+
         <header class="header">
             <nav class="navbar">
-                <a href="index.html"><img class="logo" src="images/CoalLogo.png"></a>
-                <a href="Donbass_X.html" style="padding: 4px;">DonBass</a>
-                <a href="Donbass_Air.html" style="padding: 4px;">DonBass Air</a>
-                <a href="catalog.html" style="padding: 4px;">Поддержка</a>
-                <a href="magazin.html" style="padding: 4px">Магазин</a>
-                <a href="director.html" style="padding: 4px">Директор</a>
-                <a href="basket.php"><img class="logo" src="images/корзина.png"></a>
-                <a href="account.html"><img style="width: 3wh; height: 3vh;" src="images/user-profile-black.png"></a>
+            <a href="../html/index.html"><img class="logo" src="../images/CoalLogo.png"></a>
+                <a href="../html/Donbass_X.html" style="padding: 4px;">DonBass</a>
+                <a href="../html/Donbass_Air.html" style="padding: 4px;">DonBass Air</a>
+                <a href="../html/catalog.html" style="padding: 4px;">Поддержка</a>
+                <a href="../html/magazin.html" style="padding: 4px">Магазин</a>
+                <a href="../html/director.html" style="padding: 4px">Директор</a>
+                <a href="basket.php"><img class="logo" src="../images/корзина.png"></a>
+                <a href="account.php"><img style="width: 3wh; height: 3vh;" src="../images/user-profile-black.png"></a>
             </nav>
-            <nav class="navbar-under">
-                <b>Информация о магазине</b>
+            <nav class="navbar-under" style="font-size: 60%;">
+                <b>Ваш аккаунт сохраняет вашу корзину.</b>
             </nav>
-            <hr>
         </header>
+        
+        <script>
+            function getCookie(name) {
+                let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+                ));
+                return matches ? decodeURIComponent(matches[1]) : undefined;
+            }
 
+            function setCookie(name, value) {
+                updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+                document.cookie = updatedCookie;
+            }
 
-        <div class="main">
-            <div class="Span12" style="padding: 1%; padding-left: 18%; padding-right: 18%; font-size: 80%;">
-                <h1>Информация о магазине Donbass</h1>
-                <p>Donbass – один из лидеров рынка по продаже бытовой техники в России. </p>
-                <p>Наша цель изменить жизнь людей, сделав простым доступ к огромному количеству качественных и недорогих товаров, предоставляя лучший сервис.
-                    Наши клиенты – в центре всего, что мы делаем.
-                    Доверие - главное. Мы строим долгосрочные отношения.
-                    Во всём, чем занимаемся, стремимся быть экспертами.
-                    Открыты для предложений и улучшений.<br>
-                    Прозрачность - основа совместного бизнеса.
-                    Работаем, соблюдая этику бизнеса,
-                    уважаем другие мнения и интересы.
-                    Выполняем обязательства и берем ответственность за свои решения и
-                    нетерпимы к коррупции.<br>
-                    Coal - территория личной и коллективной самореализации,
-                    Мы - одна команда,
-                    уважаем мнение и интересы людей,
-                    ценим свободу, смелость и ответственность.
+            if (getCookie("inAccount") != "true") {
+                window.location.href = 'account.php';
+            }
+
+            setCookie("prod_res", getCookie("products"));
+            
+
+        </script>
+
+        <div class="main" style="padding-top: 5%; padding-left: 30%; padding-right: 30%;padding-bottom: 13%">
+            <div class="Span12" style="text-align: center;">
+                <p style="font-size: 75%;">
+                    Вы находитесь в аккаунте Coal Store
+                </p>
+                <button id="quit" class="button button3">Выйти</button>
+
+                <p style="font-size: 50%; padding-top: 20%;">
+                    Или если вы хотите удалить аккаунт в Coal Store, <br>то вы можете это <a id="delete" style="color: blue;" href="registration.php">сделать</a>
                 </p>
             </div>
         </div>
+        
+        <script>
+            function setCookie(name, value) {
+                updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+                document.cookie = updatedCookie;
+            }
+            const q = document.getElementById("quit");
+
+            q.onclick = function() {
+                setCookie("inAccount", "false");
+                setCookie("email", "");
+                location.reload();
+            }
+        </script>
 
         <footer>
             <p> Стоимость обмена зависит от состояния, года выпуска и конфигурации вашего устройства, 

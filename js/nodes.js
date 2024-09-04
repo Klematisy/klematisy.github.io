@@ -17,7 +17,7 @@ const chosenButton = document.getElementById("chosen");
 var color = "white";
 
 whiteXButton.onclick = function(){
-    document.getElementById("donbassX").src = "images/DonbassXFridge.png";
+    document.getElementById("donbassX").src = "../images/DonbassXFridge.png";
     document.getElementById("whiteX").style.borderColor = "#205dc5";
     color = "white";
 
@@ -26,7 +26,7 @@ whiteXButton.onclick = function(){
   }
 
 blackXButton.onclick = function(){
-    document.getElementById("donbassX").src = "images/DonbassXBlack.png";
+    document.getElementById("donbassX").src = "../images/DonbassXBlack.png";
     document.getElementById("blackX").style.borderColor = "#205dc5";
     color = "black";
     
@@ -35,7 +35,7 @@ blackXButton.onclick = function(){
   }
 
 spaceXButton.onclick = function(){
-    document.getElementById("donbassX").src = "images/DonbassJetBlack.png";
+    document.getElementById("donbassX").src = "../images/DonbassJetBlack.png";
     document.getElementById("spaceX").style.borderColor = "#205dc5";
     color = "space";
 

@@ -19,7 +19,7 @@ let updatedCookie;
 let color = "white";
 
 function white() {
-    document.getElementById("donbassAir1").src = "images/Air/air.png";
+    document.getElementById("donbassAir1").src = "../images/Air/air.png";
     document.getElementById("whiteAir1").style.borderColor = "#205dc5";
     color = "white";
 
@@ -30,7 +30,7 @@ function white() {
 }
 
 function pink() {
-    document.getElementById("donbassAir1").src = "images/Air/pink.png";
+    document.getElementById("donbassAir1").src = "../images/Air/pink.png";
     document.getElementById("pinkAir1").style.borderColor = "#205dc5";
     color = "pink";
 
@@ -41,7 +41,7 @@ function pink() {
 }
 
 function gold() {
-    document.getElementById("donbassAir1").src = "images/Air/golden.png";
+    document.getElementById("donbassAir1").src = "../images/Air/golden.png";
     document.getElementById("goldenAir1").style.borderColor = "#205dc5";
     color = "gold";
 
@@ -52,7 +52,7 @@ function gold() {
 }
 
 function red() {
-    document.getElementById("donbassAir1").src = "images/Air/PRed.png";
+    document.getElementById("donbassAir1").src = "../images/Air/PRed.png";
     document.getElementById("redAir1").style.borderColor = "#205dc5";
     color = "red";
 
@@ -63,7 +63,7 @@ function red() {
 }
 
 function black() {
-    document.getElementById("donbassAir1").src = "images/Air/black.png";
+    document.getElementById("donbassAir1").src = "../images/Air/black.png";
     document.getElementById("blackAir1").style.borderColor = "#205dc5";
     color = "black";
 

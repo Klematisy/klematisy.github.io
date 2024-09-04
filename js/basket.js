@@ -46,16 +46,16 @@ for (let i = 0; i < cookie.length; i++) {
                 fridgeName = "Donbass X";
                 switch(cookie[i + 2]) {
                     case "0":
-                        s = "images/DonbassXFridge.png";
+                        s = "../images/DonbassXFridge.png";
                         break;
                     case "1":
-                        s = "images/DonbassXBlack.png";
+                        s = "../images/DonbassXBlack.png";
                         break;
                     case "2":
-                        s = "images/DonbassJetBlack.png";
+                        s = "../images/DonbassJetBlack.png";
                         break;
                     case "5":
-                        s = "images/DonbassXFridgeRed.png"
+                        s = "../images/DonbassXFridgeRed.png"
                 }
                 price = 1999;
                 sum+=price;
@@ -63,7 +63,7 @@ for (let i = 0; i < cookie.length; i++) {
             case "1": 
                 model = 6;
                 fridgeName = "Donbass X Plus";
-                s = "images/Холодильник31.png";
+                s = "../images/Холодильник31.png";
                 price = 2499;
                 if (cookie[i + 3] === "R") {
                     textOfProduct += "Улучшенные радиаторы<br>"
@@ -87,7 +87,7 @@ for (let i = 0; i < cookie.length; i++) {
                 model = 3;
                 price = 799;
                 fridgeName = "Donbass X mini";
-                s = "images/Холодильник21.png";
+                s = "../images/Холодильник21.png";
                 sum+=price;
                 break;
             case "3": 
@@ -102,7 +102,7 @@ for (let i = 0; i < cookie.length; i++) {
                     textOfProduct += "Полочки типа Fashion";
                     price+=800;
                 }
-                s = "images/DonbassSE.png";
+                s = "../images/DonbassSE.png";
                 sum+=price;
                 break;
             case "4": 
@@ -111,19 +111,19 @@ for (let i = 0; i < cookie.length; i++) {
                 fridgeName = "Donbass Air";
                 switch (cookie[i + 2]) {
                     case "0":
-                        s = "images/Air/air.png";
+                        s = "../images/Air/air.png";
                         break;
                     case "1":
-                        s = "images/Air/black.png";
+                        s = "../images/Air/black.png";
                         break;
                     case "3":
-                        s = "images/Air/pink.png";
+                        s = "../images/Air/pink.png";
                         break;
                     case "4":
-                        s = "images/Air/golden.png";
+                        s = "../images/Air/golden.png";
                         break;
                     case "5":
-                        s = "images/Air/PRed.png";
+                        s = "../images/Air/PRed.png";
                         break;
                 }
                 sum+=price;
@@ -134,19 +134,19 @@ for (let i = 0; i < cookie.length; i++) {
                 fridgeName = "Donbass Air";
                 switch (cookie[i + 2]) {
                     case "0":
-                        s = "images/Air/air.png";
+                        s = "../images/Air/air.png";
                         break;
                     case "1":
-                        s = "images/Air/black.png";
+                        s = "../images/Air/black.png";
                         break;
                     case "3":
-                        s = "images/Air/pink.png";
+                        s = "../images/Air/pink.png";
                         break;
                     case "4":
-                        s = "images/Air/golden.png";
+                        s = "../images/Air/golden.png";
                         break;
                     case "5":
-                        s = "images/Air/PRed.png";
+                        s = "../images/Air/PRed.png";
                         break;
                 }
                 sum+=price;
